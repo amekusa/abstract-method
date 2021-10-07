@@ -1,0 +1,29 @@
+{
+  "name": "abstract-method",
+  "version": "0.1.0",
+  "description": "A tiny utility for creating abstract methods",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "exports": {
+    "import": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/amekusa/abstract-method.git"
+  },
+  "keywords": [
+    "abstract",
+    "method",
+    "oop",
+    "es6"
+  ],
+  "author": "Satoshi Soma (https://amekusa.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amekusa/abstract-method/issues"
+  },
+  "homepage": "https://github.com/amekusa/abstract-method#readme"
+}
