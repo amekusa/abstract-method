@@ -10,6 +10,21 @@
   "exports": {
     "import": "./index.js"
   },
+  "scripts": {
+    "watch": "npm-watch",
+    "test": "c8 mocha --enable-source-maps"
+  },
+  "watch": {
+    "test": {
+      "inherit": true,
+      "runOnChangeOnly": true,
+      "extensions": "js",
+      "patterns": [
+        "test.js",
+        "index.js"
+      ]
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/amekusa/abstract-method.git"
