@@ -25,6 +25,8 @@ class Abstract {
 		return this._class;
 	}
 	_declare(names, type, isStatic) {
+		let abs = this._class;
+		let absName = 'name' in this._class ? this._class.name : '<anonymous class>';
 		let map = {
 			method: 'value',
 			getter: 'get',
@@ -36,13 +38,13 @@ class Abstract {
 				enumerable: false,
 				configurable: true,
 				[map[type]]: function () {
-					let c = isStatic ? this : this.constructor;
+					let cls = isStatic ? this : this.constructor;
 					let msg = `'${name}' is an abstract ${isStatic ? 'static ' : ''}${type} ` +
-					(c === this._class ? `and cannot be invoked directly` : `declared in '${this._class.name}' and must be implemented in '${c.name}'`);
+						(cls === abs ? `and cannot be invoked directly` : `declared in %declared_in% and must be implemented in %class%`);
 					let info = {
-						class: (isStatic ? this : this.constructor).name,
+						class: 'name' in cls ? cls.name : '<anonymous class>',
 						method: names[i],
-						declared_in: this._class.name
+						declared_in: absName
 					};
 					throw new NoImpl(msg, info);
 				}
