@@ -5,8 +5,13 @@
  */
 
 class NoImpl extends Error {
+	static format(str, data) {
+		let r = str;
+		for (let i in data) r = r.replaceAll(`%${i}%`, data[i]);
+		return r;
+	}
 	constructor(msg, info) {
-		super(msg);
+		super(new.target.format(msg, info));
 		this.name = new.target.name;
 		this.info = info;
 	}
